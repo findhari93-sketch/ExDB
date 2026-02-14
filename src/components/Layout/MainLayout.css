@@ -1,0 +1,15 @@
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    padding: 24px;
+    background-color: var(--amat-bg);
+    max-width: 1400px;
+    /* Optional: Constrain width for large screens */
+    width: 100%;
+    margin: 0 auto;
+}

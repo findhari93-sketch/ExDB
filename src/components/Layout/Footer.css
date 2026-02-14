@@ -1,0 +1,43 @@
+.amat-footer {
+    background-color: #f8f9fa;
+    color: #495057;
+    padding: 16px 24px;
+    border-top: 1px solid #e9ecef;
+    font-size: 0.85rem;
+    margin-top: auto;
+    /* Push to bottom */
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.divider {
+    color: #dee2e6;
+}
+
+.confidential {
+    color: #c92a2a;
+    /* Red for attention/confidentiality */
+    font-weight: 600;
+}
+
+.footer-links {
+    margin-left: auto;
+    display: flex;
+    gap: 16px;
+}
+
+.footer-links a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}

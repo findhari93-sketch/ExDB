@@ -1,0 +1,62 @@
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* AMAT Professional Color Palette */
+  --amat-blue: #0b2e59;
+  /* Deep Corporate Blue */
+  --amat-dark: #1a1a1a;
+  --amat-light: #ffffff;
+  --amat-bg: #f4f6f8;
+  /* Light Greyish Blue background */
+  --amat-text: #333333;
+  --amat-accent: #007acc;
+  /* Bright Blue for interactions */
+  --amat-accent-hover: #005fa3;
+  --amat-border: #e1e4e8;
+
+  color-scheme: light;
+  color: var(--amat-text);
+  background-color: var(--amat-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--amat-blue);
+  margin-bottom: 0.5em;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: var(--amat-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--amat-accent-hover);
+}
