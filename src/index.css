@@ -1,24 +1,41 @@
 :root {
+  /* Typography */
   font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  /* AMAT Professional Color Palette */
+  /* AMAT Brand Colors */
   --amat-blue: #0b2e59;
-  /* Deep Corporate Blue */
   --amat-dark: #1a1a1a;
   --amat-light: #ffffff;
-  --amat-bg: #f4f6f8;
-  /* Light Greyish Blue background */
-  --amat-text: #333333;
   --amat-accent: #007acc;
-  /* Bright Blue for interactions */
   --amat-accent-hover: #005fa3;
   --amat-border: #e1e4e8;
 
+  /* Glass Effect Tokens */
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg-hover: rgba(255, 255, 255, 0.70);
+  --glass-bg-active: rgba(255, 255, 255, 0.80);
+  --glass-border: rgba(255, 255, 255, 0.45);
+  --glass-border-subtle: rgba(255, 255, 255, 0.25);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --glass-shadow-elevated: 0 12px 40px rgba(0, 0, 0, 0.12);
+  --glass-blur: 20px;
+  --glass-blur-light: 12px;
+  --glass-saturate: 180%;
+
+  /* Text Colors for Glass Surfaces */
+  --glass-text-primary: #1a1a2e;
+  --glass-text-secondary: #4a4a6a;
+  --glass-text-muted: #8888a8;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-medium: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Global */
   color-scheme: light;
-  color: var(--amat-text);
-  background-color: var(--amat-bg);
+  color: var(--glass-text-primary);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -36,15 +53,12 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background: linear-gradient(135deg, #e8ecf4 0%, #d5dce8 25%, #c9d6e8 50%, #dfe4ed 75%, #eef1f6 100%);
+  background-attachment: fixed;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--amat-blue);
+h1, h2, h3, h4, h5, h6 {
+  color: var(--glass-text-primary);
   margin-bottom: 0.5em;
 }
 

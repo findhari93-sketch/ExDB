@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, Mail, FileText, ChevronDown, Home } from 'lucide-react';
+import { FileText, LayoutList, Clock, Activity, Mail, Shield, Home, ChevronDown } from 'lucide-react';
 import logo from '../../assets/logo.png';
 import './Navbar.css';
 
@@ -7,71 +7,65 @@ const Navbar: React.FC = () => {
     const [activeTab, setActiveTab] = useState('All Requests');
 
     const tabs = [
-        'My Request',
-        'All Requests',
-        'My Pending Actions',
-        'Active Ex Parts'
+        { name: 'My Request', icon: FileText },
+        { name: 'All Requests', icon: LayoutList },
+        { name: 'My Pending Actions', icon: Clock },
+        { name: 'Active Ex Parts', icon: Activity },
     ];
 
     return (
-        <nav className="amat-navbar">
-            <div className="navbar-container">
-                {/* Left Section: Logo & Brand Area */}
+        <nav className="glass-navbar">
+            <div className="navbar-inner">
+                {/* Left: Logo + Site Name + Home */}
                 <div className="navbar-left">
-                    <div className="brand-area">
-                        <img src={logo} alt="AMAT Logo" className="brand-logo" />
-                        <span className="divider-vertical"></span>
-                        <span className="brand-text">Ex Supplier</span>
-                        <span className="divider-vertical"></span>
-                        <button className="home-btn" title="Home">
-                            <Home size={20} />
-                        </button>
-                    </div>
+                    <img src={logo} alt="Applied Materials" className="navbar-logo" />
+                    <span className="navbar-divider"></span>
+                    <span className="navbar-site-name">Ex Supplier</span>
+                    <span className="navbar-divider"></span>
+                    <button className="navbar-icon-btn" title="Home">
+                        <Home size={18} strokeWidth={1.8} />
+                    </button>
                 </div>
 
-                {/* Center Section: Folder-style Tabs */}
+                {/* Center: Tab Navigation */}
                 <div className="navbar-center">
-                    <div className="nav-tabs-container">
-                        {tabs.map((tab) => (
-                            <button
-                                key={tab}
-                                className={`nav-folder-tab ${activeTab === tab ? 'active' : ''}`}
-                                onClick={() => setActiveTab(tab)}
-                            >
-                                {tab}
-                            </button>
-                        ))}
-                    </div>
+                    {tabs.map(({ name, icon: Icon }) => (
+                        <button
+                            key={name}
+                            className={`navbar-tab ${activeTab === name ? 'active' : ''}`}
+                            onClick={() => setActiveTab(name)}
+                        >
+                            <Icon size={16} strokeWidth={2} />
+                            <span>{name}</span>
+                        </button>
+                    ))}
                 </div>
 
-                {/* Right Section: Actions & Profile */}
+                {/* Right: Actions + Profile */}
                 <div className="navbar-right">
-                    <div className="global-actions">
-                        <button className="icon-action-btn" title="Documentation">
-                            <FileText size={18} />
-                            <span className="action-label">Docs</span>
+                    <div className="navbar-actions">
+                        <button className="navbar-icon-btn" title="Documentation">
+                            <FileText size={18} strokeWidth={1.8} />
                         </button>
-                        <button className="icon-action-btn" title="Contact">
-                            <Mail size={18} />
-                            <span className="action-label">Contact</span>
+                        <button className="navbar-icon-btn" title="Contact">
+                            <Mail size={18} strokeWidth={1.8} />
                         </button>
-                        <button className="icon-action-btn" title="Admin">
-                            <Shield size={18} />
-                            <span className="action-label">Admin</span>
+                        <button className="navbar-icon-btn" title="Admin">
+                            <Shield size={18} strokeWidth={1.8} />
                         </button>
                     </div>
 
-                    <span className="divider-vertical light"></span>
+                    <span className="navbar-divider"></span>
 
-                    <div className="profile-section">
-                        <div className="profile-details">
-                            <span className="profile-name">Gaurav Rawat</span>
-                            <span className="profile-role">SAM Approver</span>
+                    <div className="navbar-profile">
+                        <div className="navbar-profile-info">
+                            <span className="navbar-username">Gaurav Rawat</span>
+                            <span className="navbar-role">SAM Approver</span>
                         </div>
-                        <div className="profile-avatar-circle">
+                        <div className="navbar-avatar">
                             <span>GR</span>
                         </div>
-                        <ChevronDown size={14} className="dropdown-caret" />
+                        <ChevronDown size={14} />
                     </div>
                 </div>
             </div>

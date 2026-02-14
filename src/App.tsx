@@ -7,13 +7,7 @@ function App() {
         <h1>Welcome back, John</h1>
         <p>Select a tab above to get started.</p>
 
-        <div style={{
-          marginTop: '40px',
-          padding: '20px',
-          background: 'white',
-          borderRadius: '8px',
-          boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
-        }}>
+        <div className="glass-card">
           <h2>Dashboard Overview</h2>
           <p>Your recent activities and pending actions will appear here.</p>
         </div>

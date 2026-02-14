@@ -1,221 +1,193 @@
-.amat-navbar {
-    background-color: #0F6292;
-    /* Corporate Blue from reference */
-    color: white;
-    height: 56px;
-    /* Slightly more compact */
-    width: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+.glass-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 12px 16px 0;
 }
 
-.navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    padding: 0 16px;
-    max-width: 100%;
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  height: 56px;
+  padding: 0 20px;
+  border-radius: 9999px;
+
+  background: rgba(255, 255, 255, 0.60);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.50);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.60);
+
+  transition: box-shadow var(--transition-medium);
 }
 
-/* Left Section */
+/* Left Section: Logo + Site Name + Home */
 .navbar-left {
-    display: flex;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
-.brand-area {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.navbar-logo {
+  height: 28px;
+  object-fit: contain;
+  filter: invert(21%) sepia(60%) saturate(1800%) hue-rotate(192deg) brightness(85%) contrast(95%);
+  transition: filter var(--transition-fast);
 }
 
-.brand-logo {
-    height: 32px;
-    object-fit: contain;
+.navbar-logo:hover {
+  filter: invert(21%) sepia(60%) saturate(1800%) hue-rotate(192deg) brightness(100%) contrast(95%);
 }
 
-.divider-vertical {
-    width: 1px;
-    height: 24px;
-    background-color: rgba(255, 255, 255, 0.3);
-    display: inline-block;
+.navbar-divider {
+  width: 1px;
+  height: 20px;
+  background-color: var(--glass-text-muted);
+  opacity: 0.3;
 }
 
-.brand-text {
-    font-weight: 600;
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
+.navbar-site-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f4880;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
 }
 
-.home-btn {
-    background: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
-    padding: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.9;
-    transition: opacity 0.2s;
-}
-
-.home-btn:hover {
-    opacity: 1;
-}
-
-/* Center Section - Folder Tabs */
+/* Center Section: Tabs - absolutely centered to page */
 .navbar-center {
-    flex: 1;
-    display: flex;
-    align-items: flex-end;
-    /* Align tabs to bottom */
-    height: 100%;
-    overflow-x: auto;
-    margin: 0 24px;
-    /* Hide scrollbar */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
-.nav-tabs-container {
-    display: flex;
-    height: 100%;
-    align-items: flex-end;
+.navbar-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--glass-text-secondary);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
 }
 
-.nav-folder-tab {
-    background: transparent;
-    color: rgba(255, 255, 255, 0.85);
-    border: none;
-    padding: 0 20px;
-    height: 48px;
-    /* Taller interaction area */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border-radius: 8px 8px 0 0;
-    /* Top rounded corners */
-    margin-right: 4px;
-    position: relative;
-    top: 4px;
-    /* Push down slightly so active tab pops up */
+.navbar-tab:hover {
+  background: rgba(255, 255, 255, 0.50);
+  color: var(--glass-text-primary);
 }
 
-.nav-folder-tab:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
+.navbar-tab.active {
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--glass-text-primary);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-.nav-folder-tab.active {
-    background-color: #E6F0F6;
-    /* Light grey/blue background for active content */
-    color: #0F6292;
-    /* Blue text */
-    font-weight: 700;
-    height: 44px;
-    /* Slightly taller visual prominence */
-    top: 12px;
-    /* Aligns with bottom edge visually */
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 10;
+.navbar-tab.active svg {
+  color: var(--amat-accent);
 }
 
-/* Right Section */
+/* Right Section: Actions + Profile */
 .navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
-.global-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
-.icon-action-btn {
-    background: transparent;
-    border: none;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-    cursor: pointer;
-    opacity: 0.9;
-    padding: 4px 8px;
-    border-radius: 4px;
+.navbar-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--glass-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
-.icon-action-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    opacity: 1;
+.navbar-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.50);
+  color: var(--glass-text-primary);
 }
 
-.action-label {
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.3px;
+/* Profile */
+.navbar-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 4px 4px 12px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background var(--transition-fast);
 }
 
-/* Profile Section */
-.profile-section {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    padding-left: 8px;
+.navbar-profile:hover {
+  background: rgba(255, 255, 255, 0.40);
 }
 
-.profile-details {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    line-height: 1.1;
+.navbar-profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
 }
 
-.profile-name {
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: white;
+.navbar-username {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--glass-text-primary);
 }
 
-.profile-role {
-    font-size: 0.7rem;
-    color: #FFD700;
-    /* Gold/Yellow for role */
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.navbar-role {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--glass-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
-.profile-avatar-circle {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background-color: #004080;
-    /* Darker blue fill */
-    border: 2px solid #FFD700;
-    /* Gold border */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 600;
-    font-size: 0.85rem;
+.navbar-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--amat-blue), var(--amat-accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
 }
 
-.dropdown-caret {
-    opacity: 0.8;
+.navbar-profile svg {
+  color: var(--glass-text-muted);
 }
