@@ -47,7 +47,8 @@
 }
 
 .data-table {
-  width: 100%;
+  min-width: 100%;
+  width: max-content;
   border-collapse: collapse;
   table-layout: auto;
 }

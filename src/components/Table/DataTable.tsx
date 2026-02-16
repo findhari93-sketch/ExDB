@@ -35,6 +35,11 @@ const COLUMNS: ColumnDef[] = [
   { key: 'requestor', label: 'Requestor', sortable: true, filterable: true, width: '110px' },
   { key: 'type', label: 'Type', sortable: true, filterable: false, width: '90px' },
   { key: 'pipeline', label: 'Pipeline Status', sortable: false, filterable: false, width: '200px' },
+  { key: 'pre_align_approver', label: 'PreAlign Approver', sortable: true, filterable: true, width: '140px' },
+  { key: 'bu_approver', label: 'BU Approver', sortable: true, filterable: true, width: '120px' },
+  { key: 'sam_approver', label: 'SAM Approver', sortable: true, filterable: true, width: '120px' },
+  { key: 'saml_approver', label: 'SAML Approver', sortable: true, filterable: true, width: '130px' },
+  { key: 'qr_approver', label: 'Q&R Approver', sortable: true, filterable: true, width: '120px' },
   { key: 'last_acted_on', label: 'Last Acted On', sortable: true, filterable: false, width: '120px' },
 ];
 
