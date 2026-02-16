@@ -39,7 +39,7 @@ const COLUMNS: ColumnDef[] = [
 ];
 
 const DataTable: React.FC<DataTableProps> = ({
-  rows, allData, totalFiltered, totalPages, currentPage, pageSize, sort, filters, columnFilters,
+  rows, totalFiltered, totalPages, currentPage, pageSize, sort, columnFilters,
   selectedRows, allFilteredIds, pipelineFilter, onSort, onColumnFilter, onPipelineFilter, onPageChange,
   onToggleRow, onSelectAll, onDeselectAll,
 }) => {

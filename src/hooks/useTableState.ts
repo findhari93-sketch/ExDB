@@ -54,7 +54,7 @@ export function useTableState(data: SupplierRequest[], state: DashboardState) {
       if (!val) continue;
       const q = val.toLowerCase();
       result = result.filter((r) => {
-        const cellValue = String((r as Record<string, unknown>)[col] ?? '');
+        const cellValue = String((r as unknown as Record<string, unknown>)[col] ?? '');
         return cellValue.toLowerCase().includes(q);
       });
     }
@@ -68,8 +68,8 @@ export function useTableState(data: SupplierRequest[], state: DashboardState) {
     const dir = sort.direction === 'asc' ? 1 : -1;
 
     return [...filtered].sort((a, b) => {
-      const aVal = (a as Record<string, unknown>)[col];
-      const bVal = (b as Record<string, unknown>)[col];
+      const aVal = (a as unknown as Record<string, unknown>)[col];
+      const bVal = (b as unknown as Record<string, unknown>)[col];
       if (aVal == null && bVal == null) return 0;
       if (aVal == null) return 1;
       if (bVal == null) return -1;

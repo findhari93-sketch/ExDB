@@ -56,7 +56,7 @@ const TableRow: React.FC<TableRowProps> = ({ request, columns, selected, onToggl
         );
 
       default:
-        return <span>{String((request as Record<string, unknown>)[col.key] ?? '')}</span>;
+        return <span>{String((request as unknown as Record<string, unknown>)[col.key] ?? '')}</span>;
     }
   };
 
