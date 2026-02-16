@@ -1,0 +1,107 @@
+/* Legacy Pipeline Visualization — Original Icon Chain Design */
+
+.pipeline-viz-legacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.pipeline-stage-legacy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.pipeline-circle-legacy {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.pipeline-stage-legacy:hover .pipeline-circle-legacy {
+  transform: scale(1.15);
+}
+
+.pipeline-label-legacy {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* Approved */
+.pipeline-circle-legacy-approved {
+  background: var(--status-approved);
+  color: white;
+  box-shadow: 0 0 0 3px var(--status-approved-bg);
+}
+.pipeline-stage-legacy-approved .pipeline-label-legacy {
+  color: #16a34a;
+}
+
+/* Pending */
+.pipeline-circle-legacy-pending {
+  background: var(--status-pending);
+  color: white;
+  box-shadow: 0 0 0 3px var(--status-pending-bg);
+  animation: legacyPulse 2s ease-in-out infinite;
+}
+.pipeline-stage-legacy-pending .pipeline-label-legacy {
+  color: #d97706;
+}
+
+@keyframes legacyPulse {
+  0%, 100% { box-shadow: 0 0 0 3px var(--status-pending-bg); }
+  50% { box-shadow: 0 0 0 5px var(--status-pending-bg); }
+}
+
+/* Rejected */
+.pipeline-circle-legacy-rejected {
+  background: var(--status-rejected);
+  color: white;
+  box-shadow: 0 0 0 3px var(--status-rejected-bg);
+}
+.pipeline-stage-legacy-rejected .pipeline-label-legacy {
+  color: #dc2626;
+}
+
+/* Not Reached */
+.pipeline-circle-legacy-not_reached {
+  background: rgba(148, 163, 184, 0.08);
+  border: 1.5px dashed var(--status-not-reached);
+  color: var(--status-not-reached);
+}
+.pipeline-stage-legacy-not_reached .pipeline-label-legacy {
+  color: var(--status-not-reached);
+  opacity: 0.7;
+}
+
+/* Skipped */
+.pipeline-circle-legacy-skipped {
+  background: rgba(203, 213, 225, 0.10);
+  border: 1.5px dashed var(--status-skipped);
+  color: var(--status-skipped);
+}
+.pipeline-stage-legacy-skipped .pipeline-label-legacy {
+  color: var(--status-skipped);
+}
+
+/* Arrow connectors */
+.pipeline-arrow-legacy {
+  display: flex;
+  align-items: center;
+  margin-top: 7px;
+  color: var(--status-not-reached);
+  flex-shrink: 0;
+}
+.pipeline-arrow-legacy.active {
+  color: var(--status-approved);
+}

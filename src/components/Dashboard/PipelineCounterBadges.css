@@ -1,0 +1,77 @@
+.pipeline-counter-badges {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pipeline-progress-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 3px 5px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: 'Inter', sans-serif;
+}
+
+.pipeline-progress-badge:hover {
+  background: rgba(255, 255, 255, 0.55);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+.pipeline-progress-badge.active {
+  background: rgba(0, 122, 204, 0.06);
+  border-color: var(--amat-accent);
+  box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.08);
+}
+
+/* SVG ring container */
+.pipeline-progress-ring {
+  display: block;
+}
+
+/* Full background ring in pending amber - the pending portion shows through */
+.pipeline-ring-pending-track {
+  stroke: var(--status-pending);
+  opacity: 0.85;
+}
+
+/* Completed arc overlay in green */
+.pipeline-ring-completed {
+  stroke: var(--status-approved);
+  transition: stroke-dasharray 0.4s ease;
+}
+
+/* Inner filled circle */
+.pipeline-inner-circle.has-pending {
+  fill: #fde68a;
+}
+
+.pipeline-inner-circle.all-clear {
+  fill: #dcfce7;
+}
+
+/* Count number centered */
+.pipeline-ring-count {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  fill: #1a1a2e;
+}
+
+/* Stage label below */
+.pipeline-progress-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--glass-text-secondary);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.pipeline-progress-badge.active .pipeline-progress-label {
+  color: var(--amat-accent);
+}

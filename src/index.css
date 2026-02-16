@@ -29,6 +29,27 @@
   --glass-text-secondary: #4a4a6a;
   --glass-text-muted: #8888a8;
 
+  /* Status Colors */
+  --status-approved: #22c55e;
+  --status-approved-bg: rgba(34, 197, 94, 0.12);
+  --status-approved-border: rgba(34, 197, 94, 0.25);
+  --status-pending: #f59e0b;
+  --status-pending-bg: rgba(245, 158, 11, 0.12);
+  --status-pending-border: rgba(245, 158, 11, 0.25);
+  --status-rejected: #ef4444;
+  --status-rejected-bg: rgba(239, 68, 68, 0.12);
+  --status-rejected-border: rgba(239, 68, 68, 0.25);
+  --status-not-reached: #94a3b8;
+  --status-not-reached-bg: rgba(148, 163, 184, 0.08);
+  --status-skipped: #cbd5e1;
+  --status-skipped-bg: rgba(203, 213, 225, 0.10);
+
+  /* Table Tokens */
+  --table-header-bg: #f5f7fa;
+  --table-row-hover: rgba(255, 255, 255, 0.30);
+  --table-row-selected: rgba(0, 122, 204, 0.06);
+  --table-border: rgba(0, 0, 0, 0.06);
+
   /* Transitions */
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-medium: 0.3s cubic-bezier(0.4, 0, 0.2, 1);

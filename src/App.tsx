@@ -1,17 +1,27 @@
+import { useState } from 'react'
 import MainLayout from './components/Layout/MainLayout'
+import Dashboard from './components/Dashboard/Dashboard'
+import PipelineComparison from './components/Dashboard/PipelineComparison'
+import './App.css'
 
 function App() {
-  return (
-    <MainLayout>
-      <div className="dashboard-placeholder">
-        <h1>Welcome back, John</h1>
-        <p>Select a tab above to get started.</p>
+  const [activeTab, setActiveTab] = useState('All Requests')
 
-        <div className="glass-card">
-          <h2>Dashboard Overview</h2>
-          <p>Your recent activities and pending actions will appear here.</p>
+  return (
+    <MainLayout activeTab={activeTab} onTabChange={setActiveTab}>
+      {activeTab === 'All Requests' ? (
+        <Dashboard />
+      ) : activeTab === 'My Request' ? (
+        <PipelineComparison />
+      ) : (
+        <div className="dashboard-placeholder">
+          <h1>{activeTab}</h1>
+          <p>This section is under construction.</p>
+          <div className="glass-card">
+            <p>Content for "{activeTab}" will appear here.</p>
+          </div>
         </div>
-      </div>
+      )}
     </MainLayout>
   )
 }

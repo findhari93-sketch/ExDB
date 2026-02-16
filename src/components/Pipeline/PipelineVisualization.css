@@ -1,0 +1,226 @@
+/* ===================================================
+   PipelineVisualization — Dual Badge + Progress Bar
+   =================================================== */
+
+.pipeline-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+  width: 100%;
+  cursor: default;
+}
+
+/* ─── Badge Row ─── */
+.pipeline-badge-row {
+  display: flex;
+  align-items: center;
+}
+
+.pipeline-badge-row--dual {
+  justify-content: space-between;
+}
+
+/* ─── Text Badge ─── */
+.pipeline-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.pipeline-badge--approved {
+  background: var(--status-approved-bg);
+  color: #16a34a;
+}
+
+.pipeline-badge--pending {
+  background: var(--status-pending-bg);
+  color: #b45309;
+}
+
+.pipeline-badge--rejected {
+  background: var(--status-rejected-bg);
+  color: #dc2626;
+}
+
+.pipeline-badge--not_reached {
+  background: var(--status-not-reached-bg);
+  color: var(--glass-text-muted);
+}
+
+.pipeline-badge--skipped {
+  background: var(--status-skipped-bg);
+  color: var(--glass-text-muted);
+}
+
+/* ─── Badge Icon ─── */
+.pipeline-badge__icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 2px;
+  flex-shrink: 0;
+}
+
+/* ─── Segmented Progress Bar ─── */
+.pipeline-bar {
+  display: flex;
+  gap: 2px;
+  height: 4px;
+}
+
+.pipeline-bar__segment {
+  flex: 1;
+  border-radius: 2px;
+}
+
+.pipeline-bar__segment--approved {
+  background: var(--status-approved);
+}
+
+.pipeline-bar__segment--pending {
+  background: var(--status-pending);
+}
+
+.pipeline-bar__segment--rejected {
+  background: var(--status-rejected);
+}
+
+.pipeline-bar__segment--not_reached {
+  background: rgba(148, 163, 184, 0.15);
+}
+
+.pipeline-bar__segment--skipped {
+  background: rgba(203, 213, 225, 0.25);
+}
+
+/* ─── Hover Tooltip (Frosted Glass) ─── */
+.pipeline-tooltip {
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  min-width: 280px;
+  padding: 10px 12px;
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.80);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.06);
+
+  animation: tooltipFadeIn 0.15s ease-out;
+  pointer-events: none;
+}
+
+.pipeline-tooltip--below {
+  top: calc(100% + 6px);
+}
+
+.pipeline-tooltip--above {
+  bottom: calc(100% + 6px);
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pipeline-tooltip__header {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--glass-text-muted);
+  margin-bottom: 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.pipeline-tooltip__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 0;
+}
+
+.pipeline-tooltip__row--skipped {
+  opacity: 0.5;
+}
+
+.pipeline-tooltip__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pipeline-tooltip__icon--approved {
+  background: var(--status-approved);
+  color: white;
+}
+
+.pipeline-tooltip__icon--pending {
+  background: var(--status-pending);
+  color: white;
+}
+
+.pipeline-tooltip__icon--rejected {
+  background: var(--status-rejected);
+  color: white;
+}
+
+.pipeline-tooltip__icon--not_reached {
+  background: rgba(148, 163, 184, 0.15);
+  color: var(--status-not-reached);
+  border: 1px dashed var(--status-not-reached);
+}
+
+.pipeline-tooltip__icon--skipped {
+  background: rgba(203, 213, 225, 0.15);
+  color: var(--status-skipped);
+  border: 1px dashed var(--status-skipped);
+}
+
+.pipeline-tooltip__stage {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--glass-text-primary);
+  min-width: 52px;
+}
+
+.pipeline-tooltip__approver {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--glass-text-secondary);
+  flex: 1;
+  text-align: left;
+}
+
+.pipeline-tooltip__status {
+  font-size: 0.72rem;
+  font-weight: 500;
+  margin-left: auto;
+}
+
+.pipeline-tooltip__status--approved  { color: #16a34a; }
+.pipeline-tooltip__status--pending   { color: #d97706; }
+.pipeline-tooltip__status--rejected  { color: #dc2626; }
+.pipeline-tooltip__status--not_reached { color: var(--glass-text-muted); }
+.pipeline-tooltip__status--skipped   { color: var(--glass-text-muted); }

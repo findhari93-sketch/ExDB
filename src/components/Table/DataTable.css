@@ -1,0 +1,60 @@
+.data-table-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+/* Table scroll area fills remaining space */
+.data-table-scroll {
+  flex: 1;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.data-table-scroll:hover {
+  scrollbar-color: rgba(0, 0, 0, 0.18) transparent;
+}
+
+.data-table-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.data-table-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.data-table-scroll::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 9999px;
+  transition: background 0.3s;
+}
+
+.data-table-scroll:hover::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.data-table-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.30);
+}
+
+.data-table-scroll::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px !important;
+  color: var(--glass-text-muted);
+  font-size: 0.9rem;
+}

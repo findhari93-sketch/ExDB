@@ -5,12 +5,14 @@ import './MainLayout.css';
 
 interface MainLayoutProps {
     children: ReactNode;
+    activeTab: string;
+    onTabChange: (tab: string) => void;
 }
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+const MainLayout: React.FC<MainLayoutProps> = ({ children, activeTab, onTabChange }) => {
     return (
         <div className="main-layout">
-            <Navbar />
+            <Navbar activeTab={activeTab} onTabChange={onTabChange} />
             <main className="main-content">
                 {children}
             </main>

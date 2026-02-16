@@ -1,16 +1,15 @@
 .glass-footer {
   text-align: center;
-  padding: 8px 24px;
-  margin-top: auto;
-  font-size: 0.8rem;
+  padding: 2px 12px;
+  font-size: 0.68rem;
+  flex-shrink: 0;
   color: var(--glass-text-muted);
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
-  border-top: 1px solid rgba(255, 255, 255, 0.30);
+  background: transparent;
+  border-top: none;
+  line-height: 1.4;
 }
 
 .glass-footer p {
   margin: 0;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
 }

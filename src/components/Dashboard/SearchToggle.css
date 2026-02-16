@@ -1,0 +1,97 @@
+.search-toggle {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Collapsed: icon button */
+.search-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.40);
+  color: var(--glass-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.search-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.70);
+  color: var(--glass-text-primary);
+  border-color: rgba(0, 0, 0, 0.10);
+}
+
+/* Expanded: input field */
+.search-toggle-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.50);
+  border-radius: 10px;
+  width: 220px;
+  animation: searchExpand 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.search-toggle-field:focus-within {
+  border-color: var(--amat-accent);
+  box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.10);
+  background: rgba(255, 255, 255, 0.60);
+}
+
+@keyframes searchExpand {
+  from {
+    width: 34px;
+    opacity: 0.5;
+  }
+  to {
+    width: 220px;
+    opacity: 1;
+  }
+}
+
+.search-toggle-icon {
+  color: var(--glass-text-muted);
+  flex-shrink: 0;
+}
+
+.search-toggle-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  color: var(--glass-text-primary);
+  min-width: 0;
+}
+
+.search-toggle-input::placeholder {
+  color: var(--glass-text-muted);
+}
+
+.search-toggle-clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--glass-text-secondary);
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+  transition: background var(--transition-fast);
+}
+
+.search-toggle-clear:hover {
+  background: rgba(0, 0, 0, 0.15);
+}

@@ -1,0 +1,137 @@
+.table-row {
+  transition: background var(--transition-fast);
+}
+
+.table-row:hover {
+  background: var(--table-row-hover);
+}
+
+.table-row.selected {
+  background: var(--table-row-selected);
+}
+
+.td-checkbox {
+  width: 36px;
+  padding: 10px 8px !important;
+  text-align: center;
+}
+
+.td-cell {
+  padding: 10px 10px;
+  font-size: 0.84rem;
+  color: var(--glass-text-primary);
+  white-space: nowrap;
+  border-bottom: 1px solid var(--table-border);
+  vertical-align: middle;
+}
+
+/* Request ID as link — color-coded by type */
+.request-id-link {
+  font-weight: 600;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.request-id-link:hover {
+  text-decoration: underline;
+}
+
+/* Award requests — blue accent */
+.request-id-award {
+  color: var(--amat-accent);
+}
+
+.request-id-award:hover {
+  color: var(--amat-accent-hover);
+}
+
+/* Remove requests — muted slate */
+.request-id-remove {
+  color: #64748b;
+}
+
+.request-id-remove:hover {
+  color: #475569;
+}
+
+/* Supplier name with flag */
+.supplier-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.supplier-name-text {
+  max-width: 470px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.flagged-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: var(--status-rejected-bg);
+  color: var(--status-rejected);
+  font-size: 0.65rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  border: 1px solid var(--status-rejected-border);
+}
+
+/* Regional hold badge */
+.hold-badge {
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.hold-yes {
+  background: var(--status-approved-bg);
+  color: #16a34a;
+}
+
+.hold-no {
+  background: rgba(148, 163, 184, 0.08);
+  color: var(--glass-text-muted);
+}
+
+/* Sticky columns for data rows - solid so content doesn't bleed through */
+.table-row .sticky-col {
+  background: #f8f9fb;
+  z-index: 2;
+}
+
+.table-row:hover .sticky-col {
+  background: #eef2f8;
+}
+
+.table-row.selected .sticky-col {
+  background: #e8f0fc;
+}
+
+/* Zebra striping — subtle alternating row backgrounds */
+.table-row:nth-child(even) {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.table-row:nth-child(even) .sticky-col {
+  background: #f4f5f8;
+}
+
+.table-row:nth-child(even):hover .sticky-col {
+  background: #eef2f8;
+}
+
+/* Left-border accent by Award/Remove type */
+.table-row.row-award .sticky-col-0 {
+  border-left: 3px solid #0d9488;
+}
+
+.table-row.row-remove .sticky-col-0 {
+  border-left: 3px solid #94a3b8;
+}

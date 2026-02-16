@@ -1,17 +1,41 @@
-import React, { useState } from 'react';
+import React, { useRef, useState, useLayoutEffect, useEffect, useCallback } from 'react';
 import { FileText, LayoutList, Clock, Activity, Mail, Shield, Home, ChevronDown } from 'lucide-react';
 import logo from '../../assets/logo.png';
 import './Navbar.css';
 
-const Navbar: React.FC = () => {
-    const [activeTab, setActiveTab] = useState('All Requests');
+interface NavbarProps {
+    activeTab: string;
+    onTabChange: (tab: string) => void;
+}
 
-    const tabs = [
-        { name: 'My Request', icon: FileText },
-        { name: 'All Requests', icon: LayoutList },
-        { name: 'My Pending Actions', icon: Clock },
-        { name: 'Active Ex Parts', icon: Activity },
-    ];
+const tabs = [
+    { name: 'My Request', icon: FileText },
+    { name: 'All Requests', icon: LayoutList },
+    { name: 'My Pending Actions', icon: Clock },
+    { name: 'Active Ex Parts', icon: Activity },
+];
+
+const Navbar: React.FC<NavbarProps> = ({ activeTab, onTabChange }) => {
+    const centerRef = useRef<HTMLDivElement>(null);
+    const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+    const [pill, setPill] = useState<{ left: number; width: number } | null>(null);
+
+    const updatePill = useCallback(() => {
+        const activeIndex = tabs.findIndex(t => t.name === activeTab);
+        const el = tabRefs.current[activeIndex];
+        const container = centerRef.current;
+        if (el && container) {
+            const cRect = container.getBoundingClientRect();
+            const tRect = el.getBoundingClientRect();
+            setPill({ left: tRect.left - cRect.left, width: tRect.width });
+        }
+    }, [activeTab]);
+
+    useLayoutEffect(() => { updatePill(); }, [updatePill]);
+    useEffect(() => {
+        window.addEventListener('resize', updatePill);
+        return () => window.removeEventListener('resize', updatePill);
+    }, [updatePill]);
 
     return (
         <nav className="glass-navbar">
@@ -28,12 +52,19 @@ const Navbar: React.FC = () => {
                 </div>
 
                 {/* Center: Tab Navigation */}
-                <div className="navbar-center">
-                    {tabs.map(({ name, icon: Icon }) => (
+                <div className="navbar-center" ref={centerRef}>
+                    {pill && (
+                        <div
+                            className="navbar-tab-pill"
+                            style={{ left: pill.left, width: pill.width }}
+                        />
+                    )}
+                    {tabs.map(({ name, icon: Icon }, index) => (
                         <button
                             key={name}
+                            ref={(el) => { tabRefs.current[index] = el; }}
                             className={`navbar-tab ${activeTab === name ? 'active' : ''}`}
-                            onClick={() => setActiveTab(name)}
+                            onClick={() => onTabChange(name)}
                         >
                             <Icon size={16} strokeWidth={2} />
                             <span>{name}</span>

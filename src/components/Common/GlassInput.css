@@ -1,0 +1,53 @@
+.glass-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.50);
+  border-radius: 10px;
+  transition: all var(--transition-fast);
+}
+
+.glass-input-wrapper:focus-within {
+  border-color: var(--amat-accent);
+  box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.10);
+  background: rgba(255, 255, 255, 0.60);
+}
+
+.glass-input-md {
+  padding: 10px 14px;
+}
+
+.glass-input-sm {
+  padding: 5px 10px;
+}
+
+.glass-input-icon {
+  display: flex;
+  align-items: center;
+  color: var(--glass-text-muted);
+  flex-shrink: 0;
+}
+
+.glass-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  color: var(--glass-text-primary);
+  width: 100%;
+}
+
+.glass-input-md .glass-input {
+  font-size: 0.875rem;
+}
+
+.glass-input-sm .glass-input {
+  font-size: 0.78rem;
+  height: 18px;
+}
+
+.glass-input::placeholder {
+  color: var(--glass-text-muted);
+}

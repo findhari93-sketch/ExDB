@@ -1,0 +1,26 @@
+.glass-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 1.5px solid rgba(0, 0, 0, 0.18);
+  background: rgba(255, 255, 255, 0.50);
+  cursor: pointer;
+  padding: 0;
+  transition: all var(--transition-fast);
+  color: white;
+  flex-shrink: 0;
+}
+
+.glass-checkbox:hover {
+  border-color: var(--amat-accent);
+  background: rgba(255, 255, 255, 0.70);
+}
+
+.glass-checkbox.checked,
+.glass-checkbox.indeterminate {
+  background: var(--amat-accent);
+  border-color: var(--amat-accent);
+}

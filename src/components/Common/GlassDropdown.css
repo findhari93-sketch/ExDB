@@ -1,0 +1,38 @@
+.glass-dropdown-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.glass-dropdown {
+  appearance: none;
+  width: 100%;
+  padding: 10px 32px 10px 14px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.50);
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: var(--glass-text-primary);
+  cursor: pointer;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.glass-dropdown:focus {
+  border-color: var(--amat-accent);
+  box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.10);
+  background: rgba(255, 255, 255, 0.60);
+}
+
+.glass-dropdown option {
+  background: #fff;
+  color: var(--glass-text-primary);
+}
+
+.glass-dropdown-chevron {
+  position: absolute;
+  right: 10px;
+  color: var(--glass-text-muted);
+  pointer-events: none;
+}

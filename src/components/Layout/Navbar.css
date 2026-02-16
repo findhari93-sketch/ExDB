@@ -14,15 +14,8 @@
   padding: 0 20px;
   border-radius: 9999px;
 
-  background: rgba(255, 255, 255, 0.60);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.50);
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.10),
-    inset 0 1px 0 rgba(255, 255, 255, 0.60);
-
-  transition: box-shadow var(--transition-medium);
+  background: transparent;
+  border: none;
 }
 
 /* Left Section: Logo + Site Name + Home */
@@ -70,6 +63,8 @@
 }
 
 .navbar-tab {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -92,12 +87,26 @@
 }
 
 .navbar-tab.active {
-  background: rgba(255, 255, 255, 0.75);
   color: var(--glass-text-primary);
   font-weight: 600;
+  background: transparent;
+}
+
+/* Sliding pill indicator */
+.navbar-tab-pill {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 36px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.75);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  pointer-events: none;
+  z-index: 0;
+  transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar-tab.active svg {
